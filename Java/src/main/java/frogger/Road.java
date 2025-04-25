@@ -1,10 +1,6 @@
 package frogger;
 
-/**
- * Refactor Task 1.
- *
- * @author Zishen Wen (F22), Deyuan Chen (S22)
- */
+// Road.java
 public class Road {
     private final boolean[] occupied;
 
@@ -12,7 +8,18 @@ public class Road {
         this.occupied = occupied;
     }
 
-    public boolean[] getOccupied() {
-        return this.occupied;
+    public boolean isPositionValid(int position) {
+        return position >= 0 && position < occupied.length;
+    }
+
+    public boolean isPositionOccupied(int position) {
+        if (!isPositionValid(position)) {
+            return false; // эсвэл exception шидэж болно
+        }
+        return occupied[position];
+    }
+
+    public int getLength() {
+        return occupied.length;
     }
 }
